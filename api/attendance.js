@@ -1,20 +1,19 @@
 export default async function handler(req, res) {
-  // Mengizinkan akses dari mana saja
+  // CORS header agar bisa diakses dari frontend
   res.setHeader('Access-Control-Allow-Origin', '*');
 
-  // Menangani permintaan POST
+  // Menangani permintaan
   if (req.method === 'POST') {
     return res.status(200).json({ 
       status: "success", 
-      message: "Data absensi berhasil diterima oleh server!",
-      timestamp: new Date().toISOString()
+      message: "Data absensi diterima di server!",
+      receivedAt: new Date().toLocaleString()
     });
   }
 
-  // Menangani permintaan GET
+  // Jika diakses via browser (GET)
   return res.status(200).json({ 
-    status: "success", 
-    message: "API Absensi Aktif dan Berjalan Normal" 
+    status: "ok", 
+    message: "API Absensi Aktif" 
   });
 }
-
