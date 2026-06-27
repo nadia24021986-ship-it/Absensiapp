@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Aplikasi Absensi</title>
+</head>
+<body>
+    <h1>Selamat Datang di Aplikasi Absensi</h1>
+    <button onclick="testApi()">Tes Koneksi API</button>
+    <p id="result"></p>
+
+    <script>
+        async function testApi() {
+            const res = await fetch('/api/attendance');
+            const data = await res.json();
+            document.getElementById('result').innerText = data.message;
+        }
+    </script>
+</body>
+</html>
+
