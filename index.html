@@ -2,20 +2,19 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <title>Aplikasi Absensi</title>
+    <title>Absensi App</title>
 </head>
 <body>
-    <h1>Selamat Datang di Aplikasi Absensi</h1>
-    <button onclick="testApi()">Tes Koneksi API</button>
-    <p id="result"></p>
+    <h1>Aplikasi Absensi</h1>
+    <button onclick="cekAbsensi()">Cek Koneksi API</button>
+    <p id="status"></p>
 
     <script>
-        async function testApi() {
+        async function cekAbsensi() {
             const res = await fetch('/api/attendance');
             const data = await res.json();
-            document.getElementById('result').innerText = data.message;
+            document.getElementById('status').innerText = data.message;
         }
     </script>
 </body>
 </html>
-
